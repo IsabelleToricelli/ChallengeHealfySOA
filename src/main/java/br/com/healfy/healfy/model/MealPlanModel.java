@@ -13,13 +13,14 @@ import java.time.LocalDate;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Table(name = "MealPlan")
+
 public class MealPlanModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "O preenchimento do nome de usuário é obrigatório")
+    @NotNull(message = "O preenchimento do nome de usuário é obrigatório")
     private String userName;
 
     @NotNull(message = "O objetivo é obrigátorio (Ex: EMAGRECIMENTO)")
@@ -28,6 +29,7 @@ public class MealPlanModel {
 
     @Positive(message = "A quantidade de calorias deve ser positiva.")
     private int calories;
+
     private LocalDate planDate;
 
     @PrePersist //Esse metodo sera analisado antes de as informacoes irem para o banco de dados
